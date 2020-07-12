@@ -1,25 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails6, MySQL5.7 on mac Docker 
 
-Things you may want to cover:
+```
+$ docker-compose run web rails new . --skip-action-mailer --skip-active-storage --skip-action-cable -d mysql
+```
 
-* Ruby version
+database.yml
+```
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password:
+  host: db  
+```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# docker_rails6
+```
+$ docker-compose run web rake db:create
+$ docker-compose up web  
+$ docker-compose down
+```
