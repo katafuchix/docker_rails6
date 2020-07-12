@@ -22,3 +22,9 @@ $ docker-compose run web rake db:create
 $ docker-compose up web  
 $ docker-compose down
 ```
+
+
+```
+$ docker exec -i -t [container name] bash
+
+```
